@@ -1,0 +1,66 @@
+aid: puma
+name: Puma
+description: >-
+  Puma is a simple, fast, multi-threaded, and highly parallel HTTP 1.1 server
+  for Ruby/Rack applications. It is the most popular Ruby web server and the
+  default server for Ruby on Rails, supporting SSL, zero-downtime rolling
+  restarts, and a built-in request bufferer. Puma is an open-source application
+  server and not a hosted service, so it does not expose a public REST API;
+  integration is through configuration, Rack middleware, and the Puma control
+  application server.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Web Server
+  - Ruby
+  - Rack
+  - Application Server
+  - HTTP
+  - Open Source
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/puma/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: puma:control-app
+    name: Puma Control/Status Application
+    description: >-
+      Puma ships with an optional control/status HTTP application that can be
+      bound to a local port or Unix socket and queried for runtime statistics
+      (busy threads, worker status, backlog) and lifecycle control (stop,
+      restart, halt). Authentication uses a shared control token passed via
+      the `token` query parameter.
+    humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+    baseURL: http://127.0.0.1:9293
+    tags:
+      - Control
+      - Status
+      - Operations
+      - Ruby
+    properties:
+      - type: Documentation
+        url: https://github.com/puma/puma/blob/master/docs/restart.md
+      - type: Source Code
+        url: https://github.com/puma/puma
+
+common:
+  - type: Website
+    url: https://puma.io
+  - type: Documentation
+    url: https://puma.io/puma/
+  - type: GitHub Organization
+    url: https://github.com/puma
+  - type: GitHub Repository
+    url: https://github.com/puma/puma
+  - type: RubyGems
+    url: https://rubygems.org/gems/puma
+  - type: Issues
+    url: https://github.com/puma/puma/issues
+  - type: Discussions
+    url: https://github.com/puma/puma/discussions
+  - type: License
+    url: https://github.com/puma/puma/blob/master/LICENSE
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
