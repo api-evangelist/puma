@@ -49,9 +49,9 @@ common:
     url: https://puma.io
   - type: Documentation
     url: https://puma.io/puma/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/puma
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/puma/puma
   - type: RubyGems
     url: https://rubygems.org/gems/puma
