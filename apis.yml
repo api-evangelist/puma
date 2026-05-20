@@ -45,6 +45,8 @@ apis:
         url: https://github.com/puma/puma
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/puma
   - type: Website
     url: https://puma.io
   - type: Documentation
