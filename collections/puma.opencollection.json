@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Puma Control/Status Application API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launcher statistics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/stats"
+      },
+      "docs": "Returns runtime statistics for the Puma launcher (workers, busy threads, backlog) as JSON."
+    },
+    {
+      "info": {
+        "name": "GC statistics",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/gc-stats"
+      },
+      "docs": "Returns Ruby garbage collector statistics as JSON."
+    },
+    {
+      "info": {
+        "name": "Run garbage collection",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/gc"
+      },
+      "docs": "Triggers a Ruby `GC.start` in the Puma process."
+    },
+    {
+      "info": {
+        "name": "Thread backtraces",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/thread-backtraces"
+      },
+      "docs": "Returns the current thread backtraces for the Puma process as a JSON array."
+    },
+    {
+      "info": {
+        "name": "Hot restart",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/restart"
+      },
+      "docs": "Performs a hot restart of the Puma server."
+    },
+    {
+      "info": {
+        "name": "Phased restart",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/phased-restart"
+      },
+      "docs": "Performs a phased (rolling) restart in cluster mode. Returns 404 when phased restart is unavailable (e.g. single mode)."
+    },
+    {
+      "info": {
+        "name": "Stop the server",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/stop"
+      },
+      "docs": "Stops the Puma server gracefully."
+    },
+    {
+      "info": {
+        "name": "Halt the server",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/halt"
+      },
+      "docs": "Halts the Puma server immediately."
+    },
+    {
+      "info": {
+        "name": "Refork workers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/refork"
+      },
+      "docs": "Triggers a refork of cluster workers. Returns 404 if refork is unavailable."
+    },
+    {
+      "info": {
+        "name": "Reload worker directory",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://127.0.0.1:9293/reload-worker-directory"
+      },
+      "docs": "Reloads the working directory used by workers. Returns 404 if unavailable."
+    }
+  ],
+  "bundled": true
+}
