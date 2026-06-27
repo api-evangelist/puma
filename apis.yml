@@ -59,7 +59,7 @@ common:
     url: https://rubygems.org/gems/puma
   - type: Issues
     url: https://github.com/puma/puma/issues
-  - type: Discussions
+  - type: Forums
     url: https://github.com/puma/puma/discussions
   - type: License
     url: https://github.com/puma/puma/blob/master/LICENSE
