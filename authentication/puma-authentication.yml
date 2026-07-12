@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/puma-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: controlToken
+  type: apiKey
+  in: query
+  parameter: token
+  description: Shared control-app authentication token. Configured via Puma's `--control-token`
+    option (or `auth_token` in the control app configuration). Required on every request; missing
+    or wrong token returns 403.
+  sources:
+  - openapi/puma-openapi.yml

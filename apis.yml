@@ -45,6 +45,10 @@ apis:
         url: https://github.com/puma/puma
 
 common:
+  - type: DomainSecurity
+    url: security/puma-domain-security.yml
+  - type: Authentication
+    url: authentication/puma-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/puma
   - type: Website
