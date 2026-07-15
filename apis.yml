@@ -45,6 +45,8 @@ apis:
         url: https://github.com/puma/puma
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/puma-agentic-access.yml
   - type: DomainSecurity
     url: security/puma-domain-security.yml
   - type: Authentication
