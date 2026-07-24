@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: Puma Control/Status Application Gc Reload Worker Directory API
+  version: 1.0.0
+  description: 'Puma ships with an optional control/status HTTP application that can be
+
+    bound to a local TCP port or Unix socket and queried for runtime statistics
+
+    and lifecycle control (stop, restart, halt, gc, etc.). Endpoints are
+
+    served by Puma''s built-in status app and require a shared control token
+
+    passed via the `token` query parameter; requests without a valid token
+
+    receive HTTP 403.
+
+
+    When the status app is started in `data_only: true` mode, only the
+
+    read-only endpoints (`/stats` and `/gc-stats`) are enabled and all other
+
+    paths return 404.
+
+    '
+  contact:
+    name: Puma
+    url: https://puma.io/
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/puma/puma/blob/master/LICENSE
+servers:
+- url: http://127.0.0.1:9293
+  description: Default local Puma control/status server (host and port are configured by the operator).
+security:
+- controlToken: []
+tags:
+- name: Reload Worker Directory
+paths:
+  /reload-worker-directory:
+    get:
+      summary: Reload worker directory
+      description: Reloads the working directory used by workers. Returns 404 if unavailable.
+      operationId: reloadWorkerDirectory
+      responses:
+        '200':
+          description: Directory reload initiated.
+        '404':
+          description: Reload unavailable.
+        '403':
+          $ref: '#/components/responses/Forbidden'
+      tags:
+      - Reload Worker Directory
+components:
+  responses:
+    Forbidden:
+      description: Missing or invalid control token.
+  securitySchemes:
+    controlToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Shared control-app authentication token. Configured via Puma's `--control-token` option (or `auth_token` in the control app configuration). Required on every request; missing or wrong token returns 403.
+externalDocs:
+  description: Puma restart and control documentation
+  url: https://github.com/puma/puma/blob/master/docs/restart.md
