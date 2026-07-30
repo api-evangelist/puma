@@ -9,7 +9,19 @@ description: >-
   integration is through configuration, Rack middleware, and the Puma control
   application server.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/puma.png
 tags:
   - Web Server
   - Ruby
@@ -23,27 +35,124 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: puma:control-app
-    name: Puma Control/Status Application
-    description: >-
-      Puma ships with an optional control/status HTTP application that can be
-      bound to a local port or Unix socket and queried for runtime statistics
-      (busy threads, worker status, backlog) and lifecycle control (stop,
-      restart, halt). Authentication uses a shared control token passed via
-      the `token` query parameter.
-    humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
-    baseURL: http://127.0.0.1:9293
-    tags:
-      - Control
-      - Status
-      - Operations
-      - Ruby
-    properties:
-      - type: Documentation
-        url: https://github.com/puma/puma/blob/master/docs/restart.md
-      - type: Source Code
-        url: https://github.com/puma/puma
-
+- aid: puma:control-app
+  name: Puma Control/Status Application
+  description: >-
+    Puma ships with an optional control/status HTTP application that can be bound to a local port or Unix
+    socket and queried for runtime statistics (busy threads, worker status, backlog) and lifecycle control
+    (stop, restart, halt). Authentication uses a shared control token passed via the `token` query parameter.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Control
+  - Status
+  - Operations
+  - Ruby
+  properties:
+  - type: Documentation
+    url: https://github.com/puma/puma/blob/master/docs/restart.md
+  - type: Source Code
+    url: https://github.com/puma/puma
+- aid: puma:puma-gc-api
+  name: Puma Gc API
+  description: The Gc API from Puma — 1 operation(s) for gc.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Gc
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-gc-api-openapi.yml
+- aid: puma:puma-gc-stats-api
+  name: Puma Gc Stats API
+  description: The Gc Stats API from Puma — 1 operation(s) for gc stats.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Gc Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-gc-stats-api-openapi.yml
+- aid: puma:puma-halt-api
+  name: Puma Halt API
+  description: The Halt API from Puma — 1 operation(s) for halt.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Halt
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-halt-api-openapi.yml
+- aid: puma:puma-phased-restart-api
+  name: Puma Phased Restart API
+  description: The Phased Restart API from Puma — 1 operation(s) for phased restart.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Phased Restart
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-phased-restart-api-openapi.yml
+- aid: puma:puma-refork-api
+  name: Puma Refork API
+  description: The Refork API from Puma — 1 operation(s) for refork.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Refork
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-refork-api-openapi.yml
+- aid: puma:puma-reload-worker-directory-api
+  name: Puma Reload Worker Directory API
+  description: The Reload Worker Directory API from Puma — 1 operation(s) for reload worker directory.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Reload Worker Directory
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-reload-worker-directory-api-openapi.yml
+- aid: puma:puma-restart-api
+  name: Puma Restart API
+  description: The Restart API from Puma — 1 operation(s) for restart.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Restart
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-restart-api-openapi.yml
+- aid: puma:puma-stats-api
+  name: Puma Stats API
+  description: The Stats API from Puma — 1 operation(s) for stats.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-stats-api-openapi.yml
+- aid: puma:puma-stop-api
+  name: Puma Stop API
+  description: The Stop API from Puma — 1 operation(s) for stop.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Stop
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-stop-api-openapi.yml
+- aid: puma:puma-thread-backtraces-api
+  name: Puma Thread Backtraces API
+  description: The Thread Backtraces API from Puma — 1 operation(s) for thread backtraces.
+  humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
+  baseURL: http://127.0.0.1:9293
+  tags:
+  - Thread Backtraces
+  properties:
+  - type: OpenAPI
+    url: openapi/puma-thread-backtraces-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/puma-agentic-access.yml
