@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Puma Control/Status Application API
+  version: "1.0.0"
+  description: |
+    Puma ships with an optional control/status HTTP application that can be
+    bound to a local TCP port or Unix socket and queried for runtime statistics
+    and lifecycle control (stop, restart, halt, gc, etc.). Endpoints are
+    served by Puma's built-in status app and require a shared control token
+    passed via the `token` query parameter; requests without a valid token
+    receive HTTP 403.
+
+    When the status app is started in `data_only: true` mode, only the
+    read-only endpoints (`/stats` and `/gc-stats`) are enabled and all other
+    paths return 404.
+  contact:
+    name: Puma
+    url: https://puma.io/
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/puma/puma/blob/master/LICENSE
+externalDocs:
+  description: Puma restart and control documentation
+  url: https://github.com/puma/puma/blob/master/docs/restart.md
+servers:
+  - url: http://127.0.0.1:9293
+    description: Default local Puma control/status server (host and port are configured by the operator).
+security:
+  - controlToken: []
+paths:
+  /stats:
+    get:
+      summary: Launcher statistics
+      description: Returns runtime statistics for the Puma launcher (workers, busy threads, backlog) as JSON.
+      operationId: getStats
+      responses:
+        "200":
+          description: JSON object describing current launcher and worker stats.
+          content:
+            application/json:
+              schema:
+                type: object
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /gc-stats:
+    get:
+      summary: GC statistics
+      description: Returns Ruby garbage collector statistics as JSON.
+      operationId: getGcStats
+      responses:
+        "200":
+          description: JSON object of GC stats.
+          content:
+            application/json:
+              schema:
+                type: object
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /gc:
+    get:
+      summary: Run garbage collection
+      description: Triggers a Ruby `GC.start` in the Puma process.
+      operationId: runGc
+      responses:
+        "200":
+          description: GC executed.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /thread-backtraces:
+    get:
+      summary: Thread backtraces
+      description: Returns the current thread backtraces for the Puma process as a JSON array.
+      operationId: getThreadBacktraces
+      responses:
+        "200":
+          description: JSON array of thread backtraces.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /restart:
+    get:
+      summary: Hot restart
+      description: Performs a hot restart of the Puma server.
+      operationId: restart
+      responses:
+        "200":
+          description: Restart initiated.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /phased-restart:
+    get:
+      summary: Phased restart
+      description: Performs a phased (rolling) restart in cluster mode. Returns 404 when phased restart is unavailable (e.g. single mode).
+      operationId: phasedRestart
+      responses:
+        "200":
+          description: Phased restart initiated.
+        "404":
+          description: Phased restart not available in current mode.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /stop:
+    get:
+      summary: Stop the server
+      description: Stops the Puma server gracefully.
+      operationId: stop
+      responses:
+        "200":
+          description: Stop initiated.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /halt:
+    get:
+      summary: Halt the server
+      description: Halts the Puma server immediately.
+      operationId: halt
+      responses:
+        "200":
+          description: Halt initiated.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /refork:
+    get:
+      summary: Refork workers
+      description: Triggers a refork of cluster workers. Returns 404 if refork is unavailable.
+      operationId: refork
+      responses:
+        "200":
+          description: Refork initiated.
+        "404":
+          description: Refork not available.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+  /reload-worker-directory:
+    get:
+      summary: Reload worker directory
+      description: Reloads the working directory used by workers. Returns 404 if unavailable.
+      operationId: reloadWorkerDirectory
+      responses:
+        "200":
+          description: Directory reload initiated.
+        "404":
+          description: Reload unavailable.
+        "403":
+          $ref: '#/components/responses/Forbidden'
+components:
+  securitySchemes:
+    controlToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Shared control-app authentication token. Configured via Puma's `--control-token` option (or `auth_token` in the control app configuration). Required on every request; missing or wrong token returns 403.
+  responses:
+    Forbidden:
+      description: Missing or invalid control token.

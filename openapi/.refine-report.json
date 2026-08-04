@@ -1,0 +1,32 @@
+{
+  "provider": "puma",
+  "sources": [
+    "puma-gc-api-openapi.yml",
+    "puma-gc-stats-api-openapi.yml",
+    "puma-halt-api-openapi.yml",
+    "puma-phased-restart-api-openapi.yml",
+    "puma-refork-api-openapi.yml",
+    "puma-reload-worker-directory-api-openapi.yml",
+    "puma-restart-api-openapi.yml",
+    "puma-stats-api-openapi.yml",
+    "puma-stop-api-openapi.yml",
+    "puma-thread-backtraces-api-openapi.yml"
+  ],
+  "outputs": [
+    "puma-gc-api-openapi.yml",
+    "puma-gc-stats-api-openapi.yml",
+    "puma-halt-api-openapi.yml",
+    "puma-phased-restart-api-openapi.yml",
+    "puma-refork-api-openapi.yml",
+    "puma-reload-worker-directory-api-openapi.yml",
+    "puma-restart-api-openapi.yml",
+    "puma-stats-api-openapi.yml",
+    "puma-stop-api-openapi.yml",
+    "puma-thread-backtraces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
