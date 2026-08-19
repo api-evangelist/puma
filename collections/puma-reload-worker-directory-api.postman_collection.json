@@ -1,0 +1,180 @@
+{
+  "item": [
+    {
+      "id": "ca57f69c-646f-4989-9a17-7b208d29ee7f",
+      "name": "Reload Worker Directory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a0c6bb2-8a74-4523-86ee-287e6fcb3d5f",
+          "name": "Reload worker directory",
+          "request": {
+            "name": "Reload worker directory",
+            "description": {
+              "content": "Reloads the working directory used by workers. Returns 404 if unavailable.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reload-worker-directory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc18cd98-4e1e-49bb-9d46-b1fd225f405f",
+              "name": "Directory reload initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reload-worker-directory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60d8bdf7-746f-4004-bdce-b892e44e34ab",
+              "name": "Missing or invalid control token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reload-worker-directory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bac479a1-a65e-480a-8557-90bc3f4d7679",
+              "name": "Reload unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reload-worker-directory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:9293",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "24f4f471-281f-4140-800f-5432adea7359",
+    "name": "Puma Control/Status Application Gc Reload Worker Directory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Puma ships with an optional control/status HTTP application that can be\nbound to a local TCP port or Unix socket and queried for runtime statistics\nand lifecycle control (stop, restart, halt, gc, etc.). Endpoints are\nserved by Puma's built-in status app and require a shared control token\npassed via the `token` query parameter; requests without a valid token\nreceive HTTP 403.\n\nWhen the status app is started in `data_only: true` mode, only the\nread-only endpoints (`/stats` and `/gc-stats`) are enabled and all other\npaths return 404.\n\n\nContact Support:\n Name: Puma",
+      "type": "text/plain"
+    }
+  }
+}

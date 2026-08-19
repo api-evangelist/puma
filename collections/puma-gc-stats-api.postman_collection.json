@@ -1,0 +1,158 @@
+{
+  "item": [
+    {
+      "id": "d56a682a-be04-4bad-bf34-360bfdf256f4",
+      "name": "Gc Stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "197d4267-2229-4e02-ad30-62b161b6a56e",
+          "name": "GC statistics",
+          "request": {
+            "name": "GC statistics",
+            "description": {
+              "content": "Returns Ruby garbage collector statistics as JSON.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gc-stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6e91436-78eb-4749-af85-c107c06757d5",
+              "name": "JSON object of GC stats.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gc-stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0885aa94-762a-4408-823e-83a726c43577",
+              "name": "Missing or invalid control token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gc-stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:9293",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1efbc9fc-a868-433b-9754-d9922069ab95",
+    "name": "Puma Control/Status Application Gc Gc Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Puma ships with an optional control/status HTTP application that can be\nbound to a local TCP port or Unix socket and queried for runtime statistics\nand lifecycle control (stop, restart, halt, gc, etc.). Endpoints are\nserved by Puma's built-in status app and require a shared control token\npassed via the `token` query parameter; requests without a valid token\nreceive HTTP 403.\n\nWhen the status app is started in `data_only: true` mode, only the\nread-only endpoints (`/stats` and `/gc-stats`) are enabled and all other\npaths return 404.\n\n\nContact Support:\n Name: Puma",
+      "type": "text/plain"
+    }
+  }
+}

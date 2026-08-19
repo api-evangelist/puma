@@ -1,0 +1,146 @@
+{
+  "item": [
+    {
+      "id": "5d188bae-4ce2-4ddf-947d-f54b516fde55",
+      "name": "Gc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1597620c-a14d-4a2e-a1b6-71a088851baf",
+          "name": "Run garbage collection",
+          "request": {
+            "name": "Run garbage collection",
+            "description": {
+              "content": "Triggers a Ruby `GC.start` in the Puma process.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "610e369e-c001-477d-8f9c-2a8c2af61c91",
+              "name": "GC executed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "635ca632-2b40-4c0e-8f9d-0c7600b5eb2d",
+              "name": "Missing or invalid control token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:9293",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3edbcc3b-abaa-4f8f-b06d-e27e6f553751",
+    "name": "Puma Control/Status Application Gc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Puma ships with an optional control/status HTTP application that can be\nbound to a local TCP port or Unix socket and queried for runtime statistics\nand lifecycle control (stop, restart, halt, gc, etc.). Endpoints are\nserved by Puma's built-in status app and require a shared control token\npassed via the `token` query parameter; requests without a valid token\nreceive HTTP 403.\n\nWhen the status app is started in `data_only: true` mode, only the\nread-only endpoints (`/stats` and `/gc-stats`) are enabled and all other\npaths return 404.\n\n\nContact Support:\n Name: Puma",
+      "type": "text/plain"
+    }
+  }
+}

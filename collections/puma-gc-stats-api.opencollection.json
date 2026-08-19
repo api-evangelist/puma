@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Puma Control/Status Application Gc Gc Stats API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gc Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GC statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://127.0.0.1:9293/gc-stats"
+          },
+          "docs": "Returns Ruby garbage collector statistics as JSON."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

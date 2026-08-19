@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Puma Control/Status Application Gc Phased Restart API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Phased Restart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Phased restart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://127.0.0.1:9293/phased-restart"
+          },
+          "docs": "Performs a phased (rolling) restart in cluster mode. Returns 404 when phased restart is unavailable (e.g. single mode)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

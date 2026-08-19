@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Puma Control/Status Application Gc Halt API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Halt",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Halt the server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://127.0.0.1:9293/halt"
+          },
+          "docs": "Halts the Puma server immediately."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
