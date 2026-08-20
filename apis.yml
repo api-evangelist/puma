@@ -28,6 +28,13 @@ tags:
   - Rack
   - Application Server
   - HTTP
+  - Open-Source
+tags_raw:
+  - Web Server
+  - Ruby
+  - Rack
+  - Application Server
+  - HTTP
   - Open Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/puma/refs/heads/main/apis.yml
@@ -44,6 +51,10 @@ apis:
   humanURL: https://github.com/puma/puma/blob/master/docs/restart.md
   baseURL: http://127.0.0.1:9293
   tags:
+  - Control
+  - Status
+  - Ruby
+  tags_raw:
   - Control
   - Status
   - Operations
