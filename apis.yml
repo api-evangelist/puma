@@ -9,6 +9,18 @@ description: >-
   integration is through configuration, Rack middleware, and the Puma control
   application server.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -165,6 +177,14 @@ apis:
   - type: OpenAPI
     url: openapi/puma-thread-backtraces-api-openapi.yml
 common:
+  - type: Releases
+    url: https://github.com/puma/puma/releases
+  - type: SecurityPolicy
+    url: https://github.com/puma/puma/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/puma/puma/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/puma/puma/blob/main/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/puma-agentic-access.yml
   - type: DomainSecurity
