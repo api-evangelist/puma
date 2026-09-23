@@ -1,16 +1,7 @@
 {
   "provider": "puma",
   "sources": [
-    "puma-gc-api-openapi.yml",
-    "puma-gc-stats-api-openapi.yml",
-    "puma-halt-api-openapi.yml",
-    "puma-phased-restart-api-openapi.yml",
-    "puma-refork-api-openapi.yml",
-    "puma-reload-worker-directory-api-openapi.yml",
-    "puma-restart-api-openapi.yml",
-    "puma-stats-api-openapi.yml",
-    "puma-stop-api-openapi.yml",
-    "puma-thread-backtraces-api-openapi.yml"
+    "_original/puma-openapi.yml"
   ],
   "outputs": [
     "puma-gc-api-openapi.yml",
@@ -27,6 +18,41 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "puma-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "puma-openapi.yml: tagged paths GET /stats -> Stats",
+    "puma-openapi.yml: tagged paths GET /gc-stats -> Gc Stats",
+    "puma-openapi.yml: tagged paths GET /gc -> Gc",
+    "puma-openapi.yml: tagged paths GET /thread-backtraces -> Thread Backtraces",
+    "puma-openapi.yml: tagged paths GET /restart -> Restart",
+    "puma-openapi.yml: tagged paths GET /phased-restart -> Phased Restart",
+    "puma-openapi.yml: tagged paths GET /stop -> Stop",
+    "puma-openapi.yml: tagged paths GET /halt -> Halt",
+    "puma-openapi.yml: tagged paths GET /refork -> Refork",
+    "puma-openapi.yml: tagged paths GET /reload-worker-directory -> Reload Worker Directory",
+    "puma-openapi.yml: declared missing tag: Gc",
+    "puma-openapi.yml: declared missing tag: Gc Stats",
+    "puma-openapi.yml: declared missing tag: Halt",
+    "puma-openapi.yml: declared missing tag: Phased Restart",
+    "puma-openapi.yml: declared missing tag: Refork",
+    "puma-openapi.yml: declared missing tag: Reload Worker Directory",
+    "puma-openapi.yml: declared missing tag: Restart",
+    "puma-openapi.yml: declared missing tag: Stats",
+    "puma-openapi.yml: declared missing tag: Stop",
+    "puma-openapi.yml: declared missing tag: Thread Backtraces",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "puma-gc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-gc-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-halt-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-phased-restart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-refork-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-reload-worker-directory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-restart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-stop-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "puma-thread-backtraces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
