@@ -10,16 +10,21 @@ description: >-
   application server.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: self-hosted
+  license: BSD-3-Clause
+  license_evidence:
+    repo: puma/puma
+    spdx: BSD-3-Clause
+    stars: 7917
+  open_source: true
   commercial: false
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Self-hosted open source · you run it yourself
+  confidence: medium
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -42,7 +47,7 @@ tags:
   - Rack
   - Application Server
   - HTTP
-  - Open-Source
+  - Open Source
 tags_raw:
   - Web Server
   - Ruby
@@ -50,6 +55,7 @@ tags_raw:
   - Application Server
   - HTTP
   - Open Source
+  - Open-Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/puma/refs/heads/main/apis.yml
 created: '2026-05-11'
